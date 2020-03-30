@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body dir = rtl>
+<form action="{% url 'train:vote' human.id%}" method="post">
+{% csrf_token %}
+
+{% for details in human.student_set.all %}
+    {% if details.zarfiat > 0 %}
+    <input type="radio" name="students" id="students{{ forloop.counter }}" value="{{ details.id }}">
+    <label for="students{{ forloop.counter }}">
+        <ul style="list-style: none">
+        <li>
+        {{ details }}
+        </li>
+        </ul>
+        {% else %}
+         {{ detail.dars }} تکمیل است
+        <br>
+        <br>
+    {% endif %}
+
+    {% endfor %}
+</label><br>
+{% if error_message %}
+    {{ error_message }}
+{% else %}
+<input type="submit">
+{% endif %}
+</form>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>results</title>
+</head>
+<body dir = 'rtl'>
+{% for detail in human.student_set.all %}
+    {% if detail.zarfiat > 0 %}
+    درس : {{ detail.dars }} ----   ظرفیت :{{ detail.zarfiat }}   نفر
+<br><br>
+
+     {% else %}
+        {{ detail.dars }} تکمیل است
+    <br>
+    {% endif %}
+{% endfor %}
+
+<a href="{% url 'train:details' human.id%}">vote again</a>
+</body>
+</html>

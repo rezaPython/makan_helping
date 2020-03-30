@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index page</title>
+</head>
+<body>
+{% for all in all_human %}
+    <ul>
+    <li>
+    <a href="{% url 'train:details' all.id %}" style="text-decoration: none">
+    {{ all }}
+    </a>
+    </li>
+    </ul>
+{% endfor %}
+
+</body>
+</html>
